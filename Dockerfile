@@ -60,4 +60,9 @@ RUN cd /tmp/squid && ./configure \
 RUN cd /tmp/squid && make
 RUN cd /tmp/squid && make install
 
+# cleanup
+RUN rm -rf /tmp/squid
+RUN apt clean
+RUN rm -rf /var/lib/apt/lists/*
+
 CMD tail -f /dev/null
